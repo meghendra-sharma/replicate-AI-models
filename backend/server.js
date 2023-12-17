@@ -23,7 +23,8 @@ app.get('/', (req, res) => {
 });
 
 //REQUEST - POST
-//DEF - 
+//DEF - convert text to image
+//RESPONSE - url as a string
 app.post('/replicate/text-to-image' , runModel)
 
 // Port configuration

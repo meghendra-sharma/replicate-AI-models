@@ -1,6 +1,6 @@
 # environment files
-./frontend/.env
-./backend/.env
+frontend/.env
+backend/.env
 
 # node modules
 frontend/node_modules/

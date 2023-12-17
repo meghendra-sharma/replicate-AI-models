@@ -2,10 +2,10 @@ import Replicate from "replicate";
 
 export const runModel = async (req,res) => {
 
-    const {token , prompt} = req.body
+    const {prompt} = req.body
 
     const replicate = new Replicate({
-    auth: token,
+    auth: process.env.REPLICATE_API_TOKEN,
     });
 
     //MODEL 1
