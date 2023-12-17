@@ -5,14 +5,12 @@ import {toast} from 'react-toastify'
 // import './FormComponent.css';
 
 const Form = () => {
-  const [token, setToken] = useState('');
+  
   const [prompt, setPrompt] = useState('');
   const [modelResponse , setModelResponse] = useState('Your response will be displayed here..')
   const [gotResponse , setGotResponse] = useState(false)
 
-  const handleTokenChange = (e) => {
-    setToken(e.target.value);
-  };
+ 
 
   const handlePromptChange = (e) => {
     setPrompt(e.target.value);
@@ -22,15 +20,14 @@ const Form = () => {
     
     e.preventDefault();
     // You can handle form submission logic here
-    console.log('Token:', token);
+    
     console.log('Prompt:', prompt);
 
-    if(!prompt || !token){
+    if(!prompt){
         toast.error('Fields cannot be empty')
         return
     }
     const inputData = {
-        token,
         prompt
     }
     setGotResponse(false)
@@ -66,7 +63,7 @@ const Form = () => {
   const handleClear = () => {
     setGotResponse(false)
     setModelResponse('Your response will be displayed here..')
-    setToken('')
+    
     setPrompt('')
   }
 
@@ -78,14 +75,7 @@ const Form = () => {
       </header>
 
       <form className="token-form" onSubmit={handleSubmit}>
-        <label htmlFor="token">Token:</label>
-        <input
-          type="text"
-          id="token"
-          name="token"
-          value={token}
-          onChange={handleTokenChange}
-        />
+        
 
         <label htmlFor="prompt">Prompt:</label>
         <input
